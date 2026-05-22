@@ -1,1 +1,51 @@
 
+# ============================
+# AUDITORÍA DE INVENTARIO
+# ============================
+
+# Matriz de artículos
+# [Código, Nombre, Stock Actual, Stock Mínimo]
+
+inventario = [
+    [101, "Arroz", 20, 30],
+    [102, "Azúcar", 15, 10],
+    [103, "Aceite", 5, 20],
+    [104, "Leche", 12, 12],
+    [105, "Café", 3, 15]
+]
+
+# ---------------------------------
+# Función para calcular pedido
+# ---------------------------------
+
+def calcular_pedido(stock_actual, stock_minimo):
+
+    if stock_actual < stock_minimo:
+        cantidad = stock_minimo - stock_actual
+    else:
+        cantidad = 0
+
+    return cantidad
+
+
+# ---------------------------------
+# Mostrar lista de pedidos
+# ---------------------------------
+
+print("===== LISTA DE REABASTECIMIENTO =====\n")
+
+for articulo in inventario:
+
+    codigo = articulo[0]
+    nombre = articulo[1]
+    stock_actual = articulo[2]
+    stock_minimo = articulo[3]
+
+    pedido = calcular_pedido(stock_actual, stock_minimo)
+
+    print("Código:", codigo)
+    print("Artículo:", nombre)
+    print("Stock Actual:", stock_actual)
+    print("Stock Mínimo:", stock_minimo)
+    print("Cantidad a Pedir:", pedido)
+    print("-----------------------------------")
